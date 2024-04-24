@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Pixel Stream App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Add your custom styles here */
+        body {
+            background-color: #f8f9fa;
+        }
+        .jumbotron {
+            background-image: url('https://source.unsplash.com/featured/?video,streaming');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .btn-primary {
+            margin-top: 20px;
+        }
+        .features-section {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .feature-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .feature-description {
+            color: #666;
+        }
+        .btn-custom {
+            margin-top: 20px;
+            color: #fff;
+            background-color: #6c757d; /* Gray color from Bootstrap */
+            border-color: #6c757d; /* Gray color from Bootstrap */
+        }
+        .btn-custom:hover {
+            background-color: #5a6268; /* Darker gray color from Bootstrap */
+            border-color: #5a6268; /* Darker gray color from Bootstrap */
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to the Pixel Stream App</h1>
+        <p class="lead">Stream your favorite videos with ease!</p>
+        <div class="btn-group">
+            <a href="{% url 'video_upload' %}" class="btn btn-primary btn-lg">Upload Video</a>
+            <a href="{% url 'video_list' %}" class="btn btn-custom btn-lg">My Videos</a>
+        </div>
+    </div>
+
+    <div class="container features-section">
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fas fa-cloud-upload-alt feature-icon"></i>
+                <h3 class="feature-title">Easy Video Upload</h3>
+                <p class="feature-description">Upload your videos seamlessly and share them with the world.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-play-circle feature-icon"></i>
+                <h3 class="feature-title">Stream Anywhere</h3>
+                <p class="feature-description">Watch your favorite videos on any device, anytime, anywhere.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-search feature-icon"></i>
+                <h3 class="feature-title">Search Videos</h3>
+                <p class="feature-description">Easily find the videos you love with our powerful search feature.</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

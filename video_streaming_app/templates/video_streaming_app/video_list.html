@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Add your custom styles here */
+        body {
+            background-color: #f8f9fa;
+        }
+        .video-item {
+            margin-bottom: 20px;
+        }
+        .video-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .video-description {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .btn-watch-video {
+            background-color: #007bff; /* Bootstrap primary color */
+            border-color: #007bff; /* Bootstrap primary color */
+        }
+        .btn-watch-video:hover {
+            background-color: #0056b3; /* Darker blue for hover effect */
+            border-color: #0056b3; /* Darker blue for hover effect */
+        }
+        .btn-delete-video {
+            background-color: #dc3545; /* Bootstrap danger color */
+            border-color: #dc3545; /* Bootstrap danger color */
+        }
+        .btn-delete-video:hover {
+            background-color: #bd2130; /* Darker red for hover effect */
+            border-color: #bd2130; /* Darker red for hover effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-3">My Videos</h1>
+        <div class="row">
+            {% for video in videos %}
+            <div class="col-lg-4 col-md-6 video-item">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title video-title">{{ video.title }}</h4>
+                        <p class="card-text video-description">{{ video.description }}</p>
+                        <a href="{{ video.video_url }}" class="btn btn-watch-video" target="_blank">Watch Video</a>
+                        <form action="{% url 'video_delete' video.id %}" method="post" class="mt-2">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.path }}">
+                            <button type="submit" class="btn btn-delete-video">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
